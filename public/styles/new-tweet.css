@@ -1,0 +1,28 @@
+.new-tweet {
+  color: #545149;
+}
+.tweet-text {
+  background-color: none;
+}
+
+button.tweet-btn {
+  background-color: #4056A1;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  /* border: 5px solid red; */
+}
+.new-btns {
+  font-family: "Bungee", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.tweet-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5px solid grey;
+}
+
+
