@@ -1,0 +1,54 @@
+section.tweet-container {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #808080;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+
+section.tweet-container header {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+  align-items: center;
+
+}
+
+div.user-dp {
+  display: flex;
+  align-items: center;
+}
+.tweet-container .user-dp img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+article.single-tweet {
+  text-align: left;
+  padding: 25px;
+  line-height: 1.8em;
+  border-bottom: 5px solid #808080;
+}
+div.user-handle {
+  color: #CACDDF;
+}
+section.tweet-container footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+}
+.tweet-date {
+  font-size: 16px;
+}
+div.tweet-icons {
+  color: #49569C;
+  font-size: 20px;
+}
+div.tweet-icons i:hover {
+  color: #BD9133;
+}
+section.tweet-container:hover {
+  box-shadow: 5px 5px #CACDDF;
+}
