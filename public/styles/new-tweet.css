@@ -25,10 +25,10 @@ button.tweet-btn {
   display: flex;
   flex-direction: column;
   align-items: start;
-  border-bottom: 5px solid grey;
+  border-bottom: 5px solid #808080;
   padding-bottom: 10px;
 }
 
 .new-tweet .neg-counter {
-  color: red;
+  color: #dd1818;
 }

@@ -51,4 +51,5 @@ div.tweet-icons i:hover {
 }
 section.tweet-container:hover {
   box-shadow: 5px 5px #CACDDF;
+  transition: box-shadow 0.3s ease; 
 }
