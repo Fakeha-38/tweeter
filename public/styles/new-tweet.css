@@ -1,8 +1,11 @@
 .new-tweet {
   color: #545149;
 }
-.tweet-text {
-  background-color: none;
+#tweet-text {
+  background-color: transparent;
+  border: none;
+  height: 40px;
+  width: 100%;
 }
 
 button.tweet-btn {
@@ -20,9 +23,12 @@ button.tweet-btn {
 }
 .tweet-div {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   border-bottom: 5px solid grey;
+  padding-bottom: 10px;
 }
 
-
+.new-tweet .neg-counter {
+  color: red;
+}
