@@ -1,4 +1,4 @@
-section.tweet-container {
+article.tweet-container {
   display: flex;
   flex-direction: column;
   border: 5px solid #808080;
@@ -6,7 +6,7 @@ section.tweet-container {
   padding: 0 10px;
 }
 
-section.tweet-container header {
+article.tweet-container header {
   display: flex;
   justify-content: space-between;
   margin: 15px;
@@ -24,7 +24,7 @@ div.user-dp {
   border-radius: 50%;
   margin-right: 10px;
 }
-article.single-tweet {
+div.single-tweet {
   text-align: left;
   padding: 25px;
   line-height: 1.8em;
@@ -33,7 +33,7 @@ article.single-tweet {
 div.user-handle {
   color: #CACDDF;
 }
-section.tweet-container footer {
+article.tweet-container footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,8 +48,10 @@ div.tweet-icons {
 }
 div.tweet-icons i:hover {
   color: #BD9133;
+  transition: 0.5s ease; 
+
 }
-section.tweet-container:hover {
+article.tweet-container:hover {
   box-shadow: 5px 5px #CACDDF;
   transition: box-shadow 0.3s ease; 
 }

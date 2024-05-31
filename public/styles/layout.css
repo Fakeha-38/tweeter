@@ -50,6 +50,5 @@ body {
   text-align: center;
   width: 90%;
   margin: 0 auto;
-
-  background-color: #f4f1ec;
+  background-color: inherit;
  }
