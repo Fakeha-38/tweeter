@@ -21,6 +21,7 @@ $(document).ready(function() {
       console.log( xhr );
     });
   }
+    
   loadTweets();
   // A function to render the tweets from the data-array and append it at the end of the section #dynamic-tweets
   const renderTweets = function(tweets) {
@@ -33,6 +34,13 @@ $(document).ready(function() {
       $('#dynamic-tweets').append($tweet);
     }
   }
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   // A function to render the tweet data from the data-array into appendable html element 
   const createTweetElement = function(tweetObj) {
     const tweetHtml = `<article class="tweet-container">
@@ -46,7 +54,7 @@ $(document).ready(function() {
       </div>
     </header>
     <div class="single-tweet">
-      <p>${tweetObj.content.text}</p>
+      <p>${escape(tweetObj.content.text)}</p>
     </div>
     <footer>
       <div class="tweet-date">
