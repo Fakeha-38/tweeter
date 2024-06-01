@@ -4,31 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  // Dummy data for older tweets to show on client's timeline
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png"
-  //       ,
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ];
   //Fuction to make an ajax get requet to fetch dynamic data from /tweets
   const loadTweets = function() {
     $.ajax({
@@ -87,21 +62,43 @@ $(document).ready(function() {
   return tweetHtml;
   }
 
+  // Validating tweet form
+  
+  const validateForm = function (textLen) {
+    if (textLen === 0 || textLen === null) {
+      alert( "Youhave not entered tweet content" );
+      return false;
+    } else if (textLen > 140) {
+      alert( "Your tweet content is longer than 140 characters");
+      return false;
+    }
+    return true;
+  }
+
+
   // Event Listner to prevent the default behaviour of the form (Tweet form)
   // And then sending the form data using ajax post request
-  $( ".new-tweet form" ).on( "submit", ( event ) => {
+  $( ".new-tweet form" ).on( "submit", function ( event ) {
     event.preventDefault();
+
+    const $tweetText = $("#tweet-text").val().length;
+    if (!validateForm($tweetText)) {  
+      return;
+    }
+
     console.log( "default " + event.type + " prevented", event );
     let dataSerial = $(this).serialize();
     $.ajax({
-      url: "/tweets",
+      url: "/tweets/",
       data: dataSerial,
       type: "POST"
     }) 
-    .done((data) => {
+    .done( function (data) {
       console.log("The data has been sent to the server..I guess: ", data, typeof data);
+      $('#tweet-text').val("");
+      $('.counter').text('140').removeClass('neg-counter');
     })
-    .fail(( xhr, status, errorThrown ) => {
+    .fail( function ( xhr, status, errorThrown ) {
       // alert( "Sorry, there was a problem!" );
       console.log( "Error: " + errorThrown );
       console.log( "Status: " + status );
