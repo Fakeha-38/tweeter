@@ -97,24 +97,8 @@ $(document).ready(function() {
       console.log("The data has been sent to the server..I guess: ", data, typeof data);
       $('#tweet-text').val("");
       $('.counter').text('140').removeClass('neg-counter');
-      $.ajax({
-        url: "/tweets",
-        type: "GET",
-        dataType: "json"
-      })
-      .done( dataSub => {
-        // Calling function to append the data-array tweets at the end of the timeline of the client
-        // console.log()
-        // renderTweets(data[(data.length - 1)]);
-        const $tweet = createTweetElement(dataSub[(dataSub.length - 1)]);
-        $('#dynamic-tweets').prepend($tweet);
-      })
-      .fail(( xhr, status, errorThrown ) => {
-        alert( "Sorry, there was a problem in submitting the tweet! Please try again" );
-        console.log( "Error: " + errorThrown );
-        console.log( "Status: " + status );
-        console.log( xhr );
-      });
+      $('#dynamic-tweets').empty(); // clear the tweet container
+      loadTweets(); // load all tweets
     })
     .fail( function ( xhr, status, errorThrown ) {
       alert( "Sorry, there was a problem in submitting the tweet! Please try again" );
