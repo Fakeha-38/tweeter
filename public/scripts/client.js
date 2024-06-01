@@ -4,6 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
+  //Hiding errors at the beginning of page load
+  $(".long-error-msg").hide();
+  $(".null-error-msg").hide();
   //Fuction to make an ajax get requet to fetch dynamic data from /tweets
   const loadTweets = function() {
     $.ajax({
@@ -34,7 +37,7 @@ $(document).ready(function() {
       $('#dynamic-tweets').append($tweet);
     }
   }
-
+  // Escape function to prevent XSS
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -75,10 +78,12 @@ $(document).ready(function() {
   const validateForm = function () {
     const $tweetText = $.trim($('#tweet-text').val()).length;
     if ($tweetText === 0 || $tweetText === null) {
-      alert( "Youhave not entered tweet content" );
+      // alert( "Youhave not entered tweet content" );
+      $(".null-error-msg").slideDown(500);
       return false;
     } else if ($tweetText > 140) {
-      alert( "Your tweet content is longer than 140 characters");
+      // alert( "Your tweet content is longer than 140 characters");
+      $(".long-error-msg").slideDown(500);
       return false;
     }
     // let textSt = $('#tweet-text').val();
@@ -103,6 +108,8 @@ $(document).ready(function() {
     }) 
     .done( function (data) {
       console.log("The data has been sent to the server..I guess: ", data, typeof data);
+      $(".long-error-msg").slideUp(500);
+      $(".null-error-msg").slideUp(500);
       $('#tweet-text').val("");
       $('.counter').text('140').removeClass('neg-counter');
       $.ajax({

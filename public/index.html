@@ -50,6 +50,14 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
+        <div class="errors">
+          <div class="long-error-msg">
+            <p><i class="fa-solid fa-circle-exclamation"></i>Too long!! Your tweet content is longer than 140 characters.</p>
+          </div>
+          <div class="null-error-msg">
+            <p><i class="fa-solid fa-circle-exclamation"></i>You haven't entered anything to post as a Tweet!!</p>
+          </div>
+        </div>
         <form action="/tweets/" method="POST" >
           <div class="tweet-div">
             <label for="tweet-text" class="tweet-label">What are you humming about?</label>

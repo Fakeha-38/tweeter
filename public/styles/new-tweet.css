@@ -32,3 +32,18 @@ button.tweet-btn {
 .new-tweet .neg-counter {
   color: #dd1818;
 }
+
+.long-error-msg, .null-error-msg {
+  color: #dd1818;
+  font-size: 18px;
+  border: 2px solid #dd1818;
+  padding: 5px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.long-error-msg i, .null-error-msg i {
+  padding: 5px;
+}
+/* .errors {
+  display: none;
+} */
