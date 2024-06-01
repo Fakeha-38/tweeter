@@ -64,11 +64,12 @@ $(document).ready(function() {
 
   // Validating tweet form
   
-  const validateForm = function (textLen) {
-    if (textLen === 0 || textLen === null) {
+  const validateForm = function () {
+    const $tweetText = $.trim($('#tweet-text').val()).length;
+    if ($tweetText === 0 || $tweetText === null) {
       alert( "Youhave not entered tweet content" );
       return false;
-    } else if (textLen > 140) {
+    } else if ($tweetText > 140) {
       alert( "Your tweet content is longer than 140 characters");
       return false;
     }
@@ -81,8 +82,7 @@ $(document).ready(function() {
   // And then sending the form data using ajax post request
   $( ".new-tweet form" ).on( "submit", function ( event ) {
     event.preventDefault();
-    const $tweetText = $.trim($('#tweet-text').val()).length;
-    if (!validateForm($tweetText)) {  
+    if (!validateForm()) {  
       return;
     }
 
