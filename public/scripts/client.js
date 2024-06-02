@@ -10,7 +10,8 @@ $(document).ready(function() {
     $('#tweet-text').focus(); 
   });
   
-  //Back to Top button logic
+  //Back to Top button LOgic ----->
+  // Scroll trigger, making the button visible
   $(window).on('scroll', function() {
     if ($(this).scrollTop() > 100) {
       $('#back-to-top').fadeIn();
@@ -18,6 +19,7 @@ $(document).ready(function() {
       $('#back-to-top').fadeOut();
     }
   });
+  //Click trigger, making th ewindow go back to the top
   $('#back-to-top').on('click', function() {
     $("html, body").animate({scrollTop: 0}, 500);
   });
@@ -88,16 +90,15 @@ $(document).ready(function() {
   }
 
   // Validating tweet form
-  
   const validateForm = function () {
     const $tweetText = $.trim($('#tweet-text').val()).length;
     if ($tweetText === 0 || $tweetText === null) {
       // alert( "Youhave not entered tweet content" );
-      $(".null-error-msg").slideDown(500);
+      $(".null-error-msg").slideDown(500).delay(5000).slideUp(500);
       return false;
     } else if ($tweetText > 140) {
       // alert( "Your tweet content is longer than 140 characters");
-      $(".long-error-msg").slideDown(500);
+      $(".long-error-msg").slideDown(500).delay(5000).slideUp(500);
       return false;
     }
     // let textSt = $('#tweet-text').val();
@@ -122,8 +123,8 @@ $(document).ready(function() {
     }) 
     .done( function (data) {
       console.log("The data has been sent to the server..I guess: ", data, typeof data);
-      $(".long-error-msg").slideUp(500);
-      $(".null-error-msg").slideUp(500);
+      // $(".long-error-msg").slideUp(500);
+      // $(".null-error-msg").slideUp(500);
       $('#tweet-text').val("");
       $('.counter').text('140').removeClass('neg-counter');
       $.ajax({
@@ -132,7 +133,7 @@ $(document).ready(function() {
         dataType: "json"
       })
       .done( dataSub => {
-        // Calling function to append the data-array tweets at the end of the timeline of the client
+        // Calling function to prepend the latest tweets at the top of the timeline of the client
         const $tweet = createTweetElement(dataSub[(dataSub.length - 1)]);
         $('#dynamic-tweets').prepend($tweet);
       })
