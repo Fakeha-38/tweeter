@@ -4,10 +4,24 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
+  //Trigger for a new tweet section
   $('.nav-button').on('click', function() {
     $('.new-tweet').slideToggle(500, 'linear');
+    $('#tweet-text').focus(); 
   });
   
+  //Back to Top button logic
+  $(window).on('scroll', function() {
+    if ($(this).scrollTop() > 100) {
+      $('#back-to-top').fadeIn();
+    } else {
+      $('#back-to-top').fadeOut();
+    }
+  });
+  $('#back-to-top').on('click', function() {
+    $("html, body").animate({scrollTop: 0}, 500);
+  });
+
   //Fuction to make an ajax get requet to fetch dynamic data from /tweets
   const loadTweets = function() {
     $.ajax({
