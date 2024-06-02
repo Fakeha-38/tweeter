@@ -4,9 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  //Hiding errors at the beginning of page load
-  $(".long-error-msg").hide();
-  $(".null-error-msg").hide();
+  $('.nav-button').on('click', function() {
+    $('.new-tweet').slideToggle(500, 'linear');
+  });
+  
   //Fuction to make an ajax get requet to fetch dynamic data from /tweets
   const loadTweets = function() {
     $.ajax({
@@ -24,7 +25,6 @@ $(document).ready(function() {
       console.log( xhr );
     });
   }
-    
   loadTweets();
   // A function to render the tweets from the data-array and append it at the end of the section #dynamic-tweets
   const renderTweets = function(tweets) {

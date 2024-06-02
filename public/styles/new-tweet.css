@@ -1,6 +1,9 @@
 .new-tweet {
   color: #545149;
 }
+.show-hide {
+  display: none;
+}
 #tweet-text {
   background-color: transparent;
   border: none;
@@ -40,6 +43,7 @@ button.tweet-btn {
   padding: 5px;
   margin-bottom: 20px;
   text-align: left;
+  display: none;
 }
 .long-error-msg i, .null-error-msg i {
   padding: 5px;
