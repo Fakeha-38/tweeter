@@ -3,11 +3,20 @@
 Tweeter is a simple, single-page Twitter clone. 
 
 ## Final Product
+![Desktop View](<docs/Screenshot 2024-06-03 at 6.51.06 PM.png>)
+*Desktop View*
 
 ![Navigation & Header](<docs/Screenshot 2024-06-02 at 2.23.49 AM.png>)
+*Navigation & Header*
+
 ![Comosing A New Tweet](<docs/Screenshot 2024-06-02 at 2.27.14 AM.png>)
+*Comosing A New Tweet*
+
 ![Form Validation Errors](<docs/Screenshot 2024-06-02 at 2.29.05 AM.png>)
+*Form Validation Errors*
+
 ![Old Dynamic Tweets](<docs/Screenshot 2024-06-02 at 2.30.54 AM.png>)
+*Old Dynamic Tweets*
 
 ## Dependencies
 
