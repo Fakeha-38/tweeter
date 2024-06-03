@@ -48,9 +48,8 @@ $(document).ready(function() {
     for (let single of tweets) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(single);
-      // console.log($tweet); // to see what it looks like
-      // takes return value and appends it to the tweets container
-      $('#dynamic-tweets').append($tweet);
+      // takes return value and prepends it to the tweets container
+      $('#dynamic-tweets').prepend($tweet);
     }
   }
   // Escape function to prevent XSS
@@ -113,8 +112,6 @@ $(document).ready(function() {
     if (!validateForm()) {  
       return;
     }
-
-    console.log( "default " + event.type + " prevented", event );
     let dataSerial = $(this).serialize();
     $.ajax({
       url: "/tweets/",
@@ -122,9 +119,6 @@ $(document).ready(function() {
       type: "POST"
     }) 
     .done( function (data) {
-      console.log("The data has been sent to the server..I guess: ", data, typeof data);
-      // $(".long-error-msg").slideUp(500);
-      // $(".null-error-msg").slideUp(500);
       $('#tweet-text').val("");
       $('.counter').text('140').removeClass('neg-counter');
       $.ajax({
